@@ -1,6 +1,12 @@
 import ReactModal from 'react-modal';
 
-function Modal ({isOpen, setIsOpen, children}) {
+interface ModalProps {
+  isOpen: boolean;
+  setIsOpen: () => void;
+  children: JSX.Element
+}
+
+function Modal ({isOpen, setIsOpen, children}:ModalProps) {
   return (
     <ReactModal
         shouldCloseOnOverlayClick={!false}

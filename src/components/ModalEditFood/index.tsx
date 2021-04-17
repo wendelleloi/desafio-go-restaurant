@@ -5,12 +5,21 @@ import { Form } from './styles';
 import Modal from '../Modal';
 import Input from '../Input';
 
-function ModalEditFood({isOpen, setIsOpen, editingFood, handleUpdateFood}) {
+import { Food } from '../../types'
+
+interface ModalEditFoodProps {
+  isOpen: boolean;
+  editingFood: Food;
+  setIsOpen: () => void;
+  handleUpdateFood: (food: Food) => void;
+}
+
+const ModalEditFood: React.FC<ModalEditFoodProps> = ({isOpen, setIsOpen, editingFood, handleUpdateFood}:ModalEditFoodProps) => {
 
   const formEl = useRef(null)
 
-  function handleSubmit(data) {
-    handleUpdateFood(data);
+  function handleSubmit(food: Food) {
+    handleUpdateFood(food);
     setIsOpen();
   }
 
